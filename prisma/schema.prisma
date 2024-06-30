@@ -1,0 +1,269 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model NewOrders {
+  id                                   Int   @id @default(autoincrement())
+  stream_name                          String   @unique
+  created_at                           DateTime @default(now())
+  updated_at                           DateTime @updatedAt
+  operation_type                       String
+  operarion_status                     String
+  operation_time                       DateTime @default(now())
+  opoeration_update_time               DateTime @updatedAt
+  symbol                               String
+  live_24h_change_in_percentage        Float
+  live_24h_change_in_USD               Float
+  order_status                         String
+  order_side                           String
+  order_type                           String
+  order_expiration                     String
+  order_quantity                       Int
+  order_time_interval                  Int
+  dayly_PNL_in_USD                     Float
+  dayly_PNL_in_percentage              Float
+  total_PNL_in_USD                     Float
+  total_PNL_in_percentage              Float
+  no_of_orders_excuted                 Int
+  no_of_orders_cancelled               Int
+  no_of_orders_partially_executed      Int
+  no_of_orders_partially_cancelled     Int
+  no_of_orders_rejected                Int
+  no_of_orders_expired                 Int
+  no_of_orders_failed                  Int
+  no_of_orders_completed               Int
+  no_of_orders_pending                 Int
+  no_of_orders_queued                  Int
+  no_of_orders_submitted               Int
+  live_price                           Float
+  order_price                          Float
+  order_field_price                    Float
+  future_trade_price                   Float
+  future_risk_limit_price              Float
+  current_order_trading_fee            Float
+  future_order_trading_fee             Float
+  total_order_trading_fee              Float
+  buy_risk_limit                       Float
+  sell_risk_limit                      Float
+  master_risk_limit                    Float
+  high_risk_limit                      Float
+  profit_risk_limit                    Float
+  algo_trade_status                    String
+  algo_trade_current_side              Float
+  algo_trade_next_side                 Float
+} 
+
+model OrderOperations {
+  id                                   Int   @id @default(autoincrement())
+  stream_name                          String   @unique
+  created_at                           DateTime @default(now())
+  updated_at                           DateTime @updatedAt
+  operation_type                       String
+  operarion_status                     String
+  operation_time                       DateTime @default(now())
+  opoeration_update_time               DateTime @updatedAt
+  symbol                               String
+  live_24h_change_in_percentage        Float
+  live_24h_change_in_USD               Float
+  order_status                         String
+  order_side                           String
+  order_type                           String
+  order_expiration                     String
+  order_quantity                       Int
+  order_time_interval                  Int
+  dayly_PNL_in_USD                     Float
+  dayly_PNL_in_percentage              Float
+  total_PNL_in_USD                     Float
+  total_PNL_in_percentage              Float
+  no_of_orders_excuted                 Int
+  no_of_orders_cancelled               Int
+  no_of_orders_partially_executed      Int
+  no_of_orders_partially_cancelled     Int
+  no_of_orders_rejected                Int
+  no_of_orders_expired                 Int
+  no_of_orders_failed                  Int
+  no_of_orders_completed               Int
+  no_of_orders_pending                 Int
+  no_of_orders_queued                  Int
+  no_of_orders_submitted               Int
+  live_price                           Float
+  order_price                          Float
+  order_field_price                    Float
+  future_trade_price                   Float
+  future_risk_limit_price              Float
+  current_order_trading_fee            Float
+  future_order_trading_fee             Float
+  total_order_trading_fee              Float
+  buy_risk_limit                       Float
+  sell_risk_limit                      Float
+  master_risk_limit                    Float
+  high_risk_limit                      Float
+  profit_risk_limit                    Float
+  algo_trade_status                    String
+  algo_trade_current_side              Float
+  algo_trade_next_side                 Float
+}
+
+model OrderHistory {
+  id                                   Int   @id @default(autoincrement())
+  stream_name                          String   @unique
+  created_at                           DateTime @default(now())
+  updated_at                           DateTime @updatedAt
+  operation_type                       String
+  operarion_status                     String
+  operation_time                       DateTime @default(now())
+  opoeration_update_time               DateTime @updatedAt
+  symbol                               String
+  live_24h_change_in_percentage        Float
+  live_24h_change_in_USD               Float
+  order_status                         String
+  order_side                           String
+  order_type                           String
+  order_expiration                     String
+  order_quantity                       Int
+  order_time_interval                  Int
+  dayly_PNL_in_USD                     Float
+  dayly_PNL_in_percentage              Float
+  total_PNL_in_USD                     Float
+  total_PNL_in_percentage              Float
+  no_of_orders_excuted                 Int
+  no_of_orders_cancelled               Int
+  no_of_orders_partially_executed      Int
+  no_of_orders_partially_cancelled     Int
+  no_of_orders_rejected                Int
+  no_of_orders_expired                 Int
+  no_of_orders_failed                  Int
+  no_of_orders_completed               Int
+  no_of_orders_pending                 Int
+  no_of_orders_queued                  Int
+  no_of_orders_submitted               Int
+  live_price                           Float
+  order_price                          Float
+  order_field_price                    Float
+  future_trade_price                   Float
+  future_risk_limit_price              Float
+  current_order_trading_fee            Float
+  future_order_trading_fee             Float
+  total_order_trading_fee              Float
+  buy_risk_limit                       Float
+  sell_risk_limit                      Float
+  master_risk_limit                    Float
+  high_risk_limit                      Float
+  profit_risk_limit                    Float
+  algo_trade_status                    String
+  algo_trade_current_side              Float
+  algo_trade_next_side                 Float
+} 
+
+model LiveOrders {
+  id                                   Int   @id @default(autoincrement())
+  stream_name                          String   @unique
+  created_at                           DateTime @default(now())
+  updated_at                           DateTime @updatedAt
+  operation_type                       String
+  operarion_status                     String
+  operation_time                       DateTime @default(now())
+  opoeration_update_time               DateTime @updatedAt
+  symbol                               String
+  live_24h_change_in_percentage        Float
+  live_24h_change_in_USD               Float
+  order_status                         String
+  order_side                           String
+  order_type                           String
+  order_expiration                     String
+  order_quantity                       Int
+  order_time_interval                  Int
+  dayly_PNL_in_USD                     Float
+  dayly_PNL_in_percentage              Float
+  total_PNL_in_USD                     Float
+  total_PNL_in_percentage              Float
+  no_of_orders_excuted                 Int
+  no_of_orders_cancelled               Int
+  no_of_orders_partially_executed      Int
+  no_of_orders_partially_cancelled     Int
+  no_of_orders_rejected                Int
+  no_of_orders_expired                 Int
+  no_of_orders_failed                  Int
+  no_of_orders_completed               Int
+  no_of_orders_pending                 Int
+  no_of_orders_queued                  Int
+  no_of_orders_submitted               Int
+  live_price                           Float
+  order_price                          Float
+  order_field_price                    Float
+  future_trade_price                   Float
+  future_risk_limit_price              Float
+  current_order_trading_fee            Float
+  future_order_trading_fee             Float
+  total_order_trading_fee              Float
+  buy_risk_limit                       Float
+  sell_risk_limit                      Float
+  master_risk_limit                    Float
+  high_risk_limit                      Float
+  profit_risk_limit                    Float
+  algo_trade_status                    String
+  algo_trade_current_side              Float
+  algo_trade_next_side                 Float
+} 
+
+model OrderBooks {
+  id                                   Int   @id @default(autoincrement())
+  stream_name                          String   @unique
+  created_at                           DateTime @default(now())
+  updated_at                           DateTime @updatedAt
+  operation_type                       String
+  operarion_status                     String
+  operation_time                       DateTime @default(now())
+  opoeration_update_time               DateTime @updatedAt
+  symbol                               String
+  live_24h_change_in_percentage        Float
+  live_24h_change_in_USD               Float
+  order_status                         String
+  order_side                           String
+  order_type                           String
+  order_expiration                     String
+  order_quantity                       Int
+  order_time_interval                  Int
+  dayly_PNL_in_USD                     Float
+  dayly_PNL_in_percentage              Float
+  total_PNL_in_USD                     Float
+  total_PNL_in_percentage              Float
+  no_of_orders_excuted                 Int
+  no_of_orders_cancelled               Int
+  no_of_orders_partially_executed      Int
+  no_of_orders_partially_cancelled     Int
+  no_of_orders_rejected                Int
+  no_of_orders_expired                 Int
+  no_of_orders_failed                  Int
+  no_of_orders_completed               Int
+  no_of_orders_pending                 Int
+  no_of_orders_queued                  Int
+  no_of_orders_submitted               Int
+  live_price                           Float
+  order_price                          Float
+  order_field_price                    Float
+  future_trade_price                   Float
+  future_risk_limit_price              Float
+  current_order_trading_fee            Float
+  future_order_trading_fee             Float
+  total_order_trading_fee              Float
+  buy_risk_limit                       Float
+  sell_risk_limit                      Float
+  master_risk_limit                    Float
+  high_risk_limit                      Float
+  profit_risk_limit                    Float
+  algo_trade_status                    String
+  algo_trade_current_side              Float
+  algo_trade_next_side                 Float
+}
